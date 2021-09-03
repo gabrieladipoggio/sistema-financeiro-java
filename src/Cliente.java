@@ -7,7 +7,7 @@ public class Cliente {
         return this.nome;
     }
 
-    public void setnome(String nome) {
+    public void setNome(String nome) {
         if(nome == null) {
             System.out.println("Nome do cliente inválido");
         } else {

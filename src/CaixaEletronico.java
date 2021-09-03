@@ -9,11 +9,16 @@ public class CaixaEletronico {
         ContaCorrente contaCorrente = new ContaCorrente(cliente);
 
         this.conta = contaCorrente;
+        System.out.println("Bem vindo cliente: "+cliente.getNome());
         return cliente;
     }
 
     public void exibirSaldo(){
-        System.out.println("O seu saldo é: " + this.conta.consultarSaldo());
+        if(this.conta == null){
+            System.out.println("Faça primeiro sua autenticação");
+        } else {
+            System.out.println("O seu saldo é: R$" + this.conta.consultarSaldo());
+        }
     }
 
     public void efetuarSaque(double valor){
@@ -26,6 +31,9 @@ public class CaixaEletronico {
         this.conta.depositar(valor);
         System.out.println("Depósito efetuado com sucesso!");
         System.out.println("O seu novo saldo é: " + this.conta.consultarSaldo());
+    }
 
+    public void encerrar(){
+        this.conta = null;
     }
 }
